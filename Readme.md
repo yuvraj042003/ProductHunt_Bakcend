@@ -20,9 +20,9 @@ Product Hunt is a free global community of millions of people who solve problems
 
 ---
 
-## 🌐 Deployed Frontend
+## 🌐 Deployed Backend
 
-🔗 **Frontend on Netlify:** [https://your-frontend-link.netlify.app](https://your-frontend-link.netlify.app)
+🔗 **Backend on Render:** [https://producthunt-bakcend.onrender.com](https://producthunt-bakcend.onrender.com)
 
 ---
 
