@@ -15,7 +15,7 @@ An Express.js-powered backend for a **ProductHunt-like platform**, built with ro
 | **Cloudinary** | Image hosting           |
 | **Multer** | File upload middleware     |
 | **JWT** | Authentication               |
-| **Netlify** | Deployed frontend         |
+| **Render** | Deployed Backend Service         |
 | **GitHub** | Code hosting               |
 
 ---
