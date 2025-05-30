@@ -34,6 +34,10 @@ app.use('/api/v1/comment', CommentRouter)
 //     res.sendFile(path.resolve(__dirname, './public/index.html'))
 // })
 
+app.get('/', (req, res) => {
+  res.send("✅ ProductHunt Backend API is running!");
+});
+
 const PORT = process.env.PORT || 3000
 
 const start = async () => {
