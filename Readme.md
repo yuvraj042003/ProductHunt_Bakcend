@@ -1,6 +1,6 @@
 # 🛠️ ProductHunt Clone - Backend
 
-An Express.js-powered backend for a **ProductHunt-like platform**, built with robust features like authentication, product submission, comment system, image uploads, and more.
+Product Hunt is a free global community of millions of people who solve problems with tech. Let us show you how to find the newest and greatest products from around the world.
 
 ---
 
@@ -15,7 +15,7 @@ An Express.js-powered backend for a **ProductHunt-like platform**, built with ro
 | **Cloudinary** | Image hosting           |
 | **Multer** | File upload middleware     |
 | **JWT** | Authentication               |
-| **Netlify** | Deployed frontend         |
+| **Render** | Deployed Backend Service         |
 | **GitHub** | Code hosting               |
 
 ---
