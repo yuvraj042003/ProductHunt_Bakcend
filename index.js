@@ -28,11 +28,11 @@ app.use('/api/v1/user', UserRouter)
 app.use('/api/v1/product', ProductRouter)
 app.use('/api/v1/comment', CommentRouter)
 
-app.use(express.static(path.resolve(__dirname, './public')))
+// app.use(express.static(path.resolve(__dirname, './public')))
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './public/index.html'))
-})
+// app.get('/', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './public/index.html'))
+// })
 
 const PORT = process.env.PORT || 3000
 
