@@ -1,56 +1,59 @@
-require('dotenv').config()
+require('dotenv').config();
 
+const express = require('express');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const cors = require('cors');
+const path = require('path');
 
-const path = require('path')
+// Routers
+const UserRouter = require('./router/UserRouter');
+const ProductRouter = require('./router/productRoute');
+const CommentRouter = require('./router/commentsRouter');
 
-// Extra Security Package
-const helmet = require('helmet')
-const xss = require('xss-clean')
-const express = require('express')
-const app = express()
-const UserRouter = require('./router/UserRouter')
-const ProductRouter = require('./router/productRoute')
-const CommentRouter = require('./router/commentsRouter')
+// DB Connection
+const connectDB = require('./db/connct');
 
-//  Connect to the database
-const connectDB = require('./db/connct')
-//  Router
+const app = express();
 
-//  Error Handler
+// ====== Security Middleware ======
+app.use(express.json());
+app.use(helmet());
+// app.use(xss()); // Enable this if you need XSS protection
 
-//  Implement 
-app.use(express.json())
-app.use(helmet())
-// app.use(xss())
+// ====== CORS Configuration ======
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://product-hunt-coral.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+ // Handle preflight requests
 
-// Routes
-app.use('/api/v1/user', UserRouter)
-app.use('/api/v1/product', ProductRouter)
-app.use('/api/v1/comment', CommentRouter)
+// ====== Routes ======
+app.use('/api/v1/user', UserRouter);
+app.use('/api/v1/product', ProductRouter);
+app.use('/api/v1/comment', CommentRouter);
 
-// app.use(express.static(path.resolve(__dirname, './public')))
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, './public/index.html'))
-// })
-
+// ====== Default Route ======
 app.get('/', (req, res) => {
   res.send("✅ ProductHunt Backend API is running!");
 });
 
-const PORT = process.env.PORT || 3000
+// ====== Start Server ======
+const PORT = process.env.PORT || 3000;
 
 const start = async () => {
-    try {
-        // Connect to the database
-        // await connectDB(process.env.MONGO_URI)
-        await connectDB()
-        console.log('Database connected successfully')
-        app.listen(PORT, () => {
-            console.log(`Server is listening on port ${PORT}`)
-        })
-    } catch (error) {
-        console.log(error)
-    }
-}
-start()
+  try {
+    await connectDB();
+    console.log('✅ Database connected successfully');
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server is listening on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+  }
+};
+
+start();
