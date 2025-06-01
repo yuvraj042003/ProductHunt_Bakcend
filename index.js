@@ -19,7 +19,7 @@ const app = express();
 // ====== Security Middleware ======
 app.use(express.json());
 app.use(helmet());
-// app.use(xss()); // Enable this if you need XSS protection
+
 
 // ====== CORS Configuration ======
 const corsOptions = {
@@ -28,7 +28,7 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
- // Handle preflight requests
+ 
 
 // ====== Routes ======
 app.use('/api/v1/user', UserRouter);
