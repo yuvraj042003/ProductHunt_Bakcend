@@ -31,6 +31,7 @@ app.use(cors(corsOptions));
  
 
 // ====== Routes ======
+app.get('/api/v1/keepingRenderUp', (req, res) => res.status(200).json({ message: 'Keeping Render Up' }));
 app.use('/api/v1/user', UserRouter);
 app.use('/api/v1/product', ProductRouter);
 app.use('/api/v1/comment', CommentRouter);
