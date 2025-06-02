@@ -9,7 +9,7 @@ const userRegister = async (req, res) => {
     if (!name || !email || !password) {
         return res.status(400).json({ error: 'Please provide all required fields' });
     }
-    console.log("CHECK", name, email, password, file);
+
     try {
         let profilePicture = 'https://i.stack.imgur.com/l60Hf.png';
         if (file) {

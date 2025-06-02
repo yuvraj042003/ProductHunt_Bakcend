@@ -7,7 +7,7 @@ const createProduct = async (req, res) => {
          return res.status(400).json({ error: 'All fields are required' });
     }
     try {
-        const defaultPicture = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdefault-avatar&psig=AOvVaw27ryX9kSh16ta_SyLqJKel&ust=1748629004319000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDqn-mkyY0DFQAAAAAdAAAAABAL'; 
+         const defaultPicture = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdefault-avatar&psig=AOvVaw27ryX9kSh16ta_SyLqJKel&ust=1748629004319000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDqn-mkyY0DFQAAAAAdAAAAABAL'; 
         let logoUrl = defaultPicture;
         if (file) {
             logoUrl = await streamUpload(file.buffer, 'product-logos');

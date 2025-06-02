@@ -39,7 +39,6 @@ app.use('/api/v1/comment', CommentRouter);
 app.get('/', (req, res) => {
   res.send("✅ ProductHunt Backend API is running!");
 });
-
 // ====== Start Server ======
 const PORT = process.env.PORT || 3000;
 
