@@ -23,7 +23,7 @@ app.use(helmet());
 
 // ====== CORS Configuration ======
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://product-hunt-coral.vercel.app'],
+  origin: ['http://localhost:5173', 'http://localhost:4173', 'https://product-hunt-coral.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   credentials: true,
 };
